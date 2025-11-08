@@ -1,2 +1,2 @@
-# linux-command-app
+# Linux Command Application:
 Simple .NET Console Application With C#: Learning about most commonly used "Linux" commands 
