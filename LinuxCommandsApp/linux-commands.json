@@ -1,0 +1,18 @@
+[
+    {
+        "Command": "ls",
+        "Description": "List the contents of a directory."
+    },
+    {
+        "Command": "mkdir",
+        "Description": "Create directories."
+    },
+    {
+        "Command": "pwd",
+        "Description": " Get the name of the present working directory."
+    },
+    {
+        "Command": "clear",
+        "Description": "clear - Clear the terminal display."
+    }
+]
