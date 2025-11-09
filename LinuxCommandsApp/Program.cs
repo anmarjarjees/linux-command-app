@@ -7,7 +7,7 @@ See https://aka.ms/new-console-template for more information
 But we will use the full template
  */
 
-// Greyed out => useless => for older versions!
+// "using System;" is Greyed out => useless (no need) => for older versions!
 using System;
 using System.Text.Json;
 // Using directive is unnecessary.
@@ -24,7 +24,7 @@ namespace LinuxCommandsApp
         - JSON File reading
         - Exception handling => try/catch
         - OOP example (calling LinuxCommand methods)
-        */
+    */
     internal class Program
     {
         /* 
@@ -37,10 +37,10 @@ namespace LinuxCommandsApp
         /* 
         By default it's "public"
         By convention in C# public method => PascalCase
-         */
+        */
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // Console.WriteLine("Hello World!");
             /* 
             Encapsulate our code with try/catch blocks
             Link: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/exception-handling-statements
@@ -51,7 +51,7 @@ namespace LinuxCommandsApp
                 // Just for testing: hardcode the arguments:
                 // LinuxCommand command1 = new LinuxCommand("ls", "list files");
                 // Can be simplified to:
-                LinuxCommand command1 = new("ls", "list files");
+                LinuxCommand command1 = new("ls", "list files"); // just with the "new" keyword!
                 command1.ShowCommandInfo();
                 // Remember: the two lines above are just for testing our Class "LinuxCommand"
 
@@ -98,7 +98,8 @@ namespace LinuxCommandsApp
                 string filePath = Path.Combine(AppContext.BaseDirectory, "Data", "commands.json");
                 */
 
-                // Optional (Strongly Recommended) Step: Check if the file exists before trying to read it:       
+                // Step02-Optional (Strongly Recommended): Check if the file exists before trying to read it:
+                // -----------------------------------------------------------------------------------------
                 if (!File.Exists(filePath))
                 {
                     Console.WriteLine($"Error: File not found at {filePath}");
@@ -107,6 +108,8 @@ namespace LinuxCommandsApp
                     return; // Terminate the application
                 }
 
+                //  Step03: Reading the file using the static method "ReadAllText" of the class "File":
+                // ------------------------------------------------------------------------------------
                 string jsonString = File.ReadAllText(filePath);
 
                 // for testing:
@@ -126,15 +129,15 @@ namespace LinuxCommandsApp
                 With "Quick Fix" => using System.Text.Json;
                 */
 
-                // Optional (recommended) Step: Check if the commands string is null or empty:
-                // ---------------------------------------------
+                // Step05-Optional (Strongly Recommended): Check if the commands string is null or empty:
+                // --------------------------------------------------------------------------------------
                 if (allCommands == null || allCommands.Count == 0)
                 {
                     Console.WriteLine("No commands found in the JSON file.");
                 }
                 else
                 {
-                    // Step05: Iterate and display commands:
+                    // Step06: Iterate and display commands:
                     // -------------------------------------
                     // Using collections, foreach loop, and object method usage
                     // Display all commands
